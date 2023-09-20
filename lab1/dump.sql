@@ -27,7 +27,12 @@ INSERT INTO reports_storms (name) VALUES ('Действия неверны');
 INSERT INTO storms (time_start, time_end, grade) VALUES ('2023-09-20 05:20:54', '2023-09-24 05:20:54', 1);
 INSERT INTO storms (time_start, time_end, grade) VALUES ('2023-09-20 01:20:54', '2023-09-20 05:20:54', 1);
 
-INSERT INTO reports (id_humans, id_storms, date, description) VALUES (2, 1, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
-INSERT INTO reports (id_humans, id_storms, date, description) VALUES (1, 1, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
-INSERT INTO reports (id_humans, id_storms, date, description) VALUES (3, 1, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
-INSERT INTO reports (id_humans, id_storms, date, description) VALUES (4, 1, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
+INSERT INTO reports (id_humans, date, description) VALUES (2, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
+INSERT INTO reports (id_humans, date, description) VALUES (1, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
+INSERT INTO reports (id_humans, date, description) VALUES (3, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
+INSERT INTO reports (id_humans, date, description) VALUES (4, '2023-09-20 11:17:45', 'невозможно разработать никакого определенного общего плана политических действий');
+
+INSERT INTO key_reports_storms (id_storms, id_reports) VALUES (1, 1);
+INSERT INTO key_reports_storms (id_storms, id_reports) VALUES (1, 2);
+INSERT INTO key_reports_storms (id_storms, id_reports) VALUES (1, 3);
+INSERT INTO key_reports_storms (id_storms, id_reports) VALUES (2, 4);
