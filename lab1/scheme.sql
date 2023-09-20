@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS states_names (
 CREATE TABLE IF NOT EXISTS drawings_future (
     id SERIAL PRIMARY KEY,
     date DATE,
-    state INTEGER,
+    state SERIAL,
     FOREIGN KEY(state) REFERENCES states_names(state)
 );
 
@@ -44,16 +44,21 @@ CREATE TABLE IF NOT EXISTS storms (
     id SERIAL PRIMARY KEY,
     time_start TIMESTAMP NOT NULL,
     time_end TIMESTAMP NOT NULL,
-    grade INTEGER,
+    grade SERIAL,
     FOREIGN KEY(grade) REFERENCES reports_storms(grade)
 );
 
 CREATE TABLE IF NOT EXISTS reports (
     id SERIAL PRIMARY KEY,
     id_humans SERIAL,
-    id_storms SERIAL,
     date DATE NOT NULL,
     description VARCHAR(1000),
-    FOREIGN KEY(id_humans) REFERENCES humans(id),
-    FOREIGN KEY(id_storms) REFERENCES storms(id)
+    FOREIGN KEY(id_humans) REFERENCES humans(id)
+);
+
+CREATE TABLE IF NOT EXISTS key_reports_storms (
+    id_storms SERIAL,
+    id_reports SERIAL,
+    FOREIGN KEY(id_storms) REFERENCES storms(id),
+    FOREIGN KEY(id_reports) REFERENCES reports(id)
 );
