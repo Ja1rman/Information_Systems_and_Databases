@@ -1,3 +1,4 @@
+DELETE FROM Ad;
 DELETE FROM Users;
 DELETE FROM Notification;
 DELETE FROM Models;
