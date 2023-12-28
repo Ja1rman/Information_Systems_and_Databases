@@ -1,0 +1,32 @@
+version: '3'
+services:
+  server:
+    build: ./server
+    container_name: server
+    ports:
+      - 8080:8080
+    hostname: server
+    restart: unless-stopped
+    networks:
+      - iris
+
+  api-postgres:
+    hostname: api-postgres
+    container_name: api-postgres
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: course_work
+      POSTGRES_USER: course_work
+      POSTGRES_PASSWORD: course_work
+    ports:
+      - "5430:5430"
+    volumes:
+      - ./postgres:/docker-entrypoint-initdb.d
+    networks:
+      - iris
+
+networks:
+  iris:
+    name: iris
+
